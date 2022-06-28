@@ -1,13 +1,379 @@
-body {
+html, body, #root, .App{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width:100%;
+  height:100%;
+  background-color: rgb(20,20,20);
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  margin-top:50px;
+}
+
+nav{
+  z-index: 1;
+  margin:0;
+  width:100%;
+  background-color: rgb(11,11,11);
+  height:50px;
+  color:white;
+  position: fixed;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content: center;
+}
+
+#nav-container{
+  display:flex;
+  justify-content: space-between;
+  width:840px;
+}
+
+#title{
+  -webkit-user-drag: none;
+  margin:0;
+  margin-top:26px;
+  transform: translateY(-50%);
+  height:44px;
+}
+
+#user-icon{
+  margin-top:25px;
+  transform: translateY(-50%);
+  border: 2px white solid;
+  border-radius: 50%;
+}
+
+.link{
+  margin-top:25px;
+  transform: translateY(-50%);
+  text-decoration: none;
+  color:white;
+  margin-left:10px;
+  margin-right: 10px;
+  font-size:14.4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#left-container{
+  position: relative;
+  display: flex;
+}
+
+#right-container{
+  margin-left:18px;
+  margin-right:18px;
+  position: relative;
+}
+
+#nav-search-bar{
+  font-size:15px;
+  color:white;
+  background-color: transparent;
+  padding:0;
+  padding-left:30px;
+  height:34px;
+  width:500px;
+  margin-top:25px;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+}
+
+#nav-search-bar:hover{
+  outline: none;
+}
+
+#modal{
+  display: none;
+}
+
+#add-form{
+  z-index:3;
+  padding:20px;
+  width:400px;
+  height:500px;
+  background-color: rgb(16,16,16);
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 2.2px;
+}
+
+#add-form-background{
+  z-index:2;
+  margin:0;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  position: fixed;
+  background-color: black;
+  opacity: 0.7;
+}
+
+#add-form-title{
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+#add-form-word{
+  padding-left:8px;
+  padding-right:8px;
+  font-size:14px;
+  color: white;
+  width:64%;
+  height:30px;
+  background-color: rgb(69,69,69);
+  border-color: transparent;
+  border-radius: 2.2px;
+  outline: none;
+}
+
+#add-form-word::placeholder{
+  color: #FFF;
+}
+
+#add-form-word:hover{
+  outline: none;
+}
+
+#add-form-scroll-box{
+  margin-top: 25px;
+  height:320px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#add-form-scroll-box::-webkit-scrollbar{
+  margin-left:4.4px;
+  background: transparent;
+  width:4.4px;
+}
+
+#add-form-scroll-box::-webkit-scrollbar-thumb{
+  width:4.4px;
+  border-radius: 3.5px;
+  background: rgb(29,29,29);
+}
+
+.add-form-input-title{
+  margin-top: 0;
+  display: inline;
+}
+
+.add-form-defs{
+  resize:vertical;
+  font-family: Arial, Helvetica, sans-serif;
+  padding:8px;
+  font-size:14px;
+  color: white;
+  width:93%;
+  height:18px;
+  background-color: rgb(69,69,69);
+  border-color: transparent;
+  border-radius: 2.2px;
+  outline: none;
+  margin-bottom:15px;
+}
+
+.add-form-defs:hover{
+  outline: none;
+}
+
+.add-form-add-btn{
+  font-size: 15px;
+  color:white;
+  background-color: rgb(29,29,29);
+  border:none;
+  border-radius: 2.2px;
+  width:50px;
+  height:25px;
+  margin-left:10px;
+  transition: all;
+  transition-duration: 0.2s ;
+}
+
+.add-form-add-btn:hover{
+  background-color: rgb(39,39,39);
+}
+
+.add-form-delete-btn{
+  font-size: 15px;
+  color:white;
+  background-color: rgb(125, 5, 0);
+  border-color:transparent;
+  border-radius: 2.2px;
+  width:70px;
+  height:25px;
+  margin-left:7px;
+  transition: all;
+  transition-duration: 0.2s ;
+}
+
+.add-form-delete-btn:hover{
+  background-color: rgb(145, 15, 5);
+}
+
+#add-form-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-form-select-box{
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-form-pof{
+  padding-left: 8px;
+  color: white;
+  height:36px;
+  background-color: rgb(16,16,16);
+  border:none;
+  border-bottom: 1.6px solid rgb(69,69,69);
+  outline:none;
+}
+
+#add-form-pof:hover{
+  outline:none;
+}
+
+#add-form-submit{
+  position: absolute;
+  bottom:16px;
+  left:50%;
+  transform: translateX(-50%);
+  font-size: 19px;
+  color:white;
+  background-color: rgb(29,29,29);
+  border:none;
+  border-radius: 2.2px;
+  width:92%;
+  height:40px;
+  transition: all;
+  transition-duration: 0.2s ;
+}
+
+#add-form-submit:hover{
+  background-color: rgb(39,39,39);
+}
+
+#search-icon{
+  position: absolute;
+  top:52%;
+  left:0;
+  transform: translateY(-50%);
+  z-index: 1;
+  color:rgb(109,109,109);
+}
+
+#keywords-container{
+  border-color:transparent;
+  width:530px;
+  background-color: rgb(29,29,26);
+  position: absolute;
+  transform: translateY(17px);
+  top:50%;
+  right:0;
+  border-bottom-right-radius: 2.2px;
+  border-bottom-left-radius: 2.2px;
+  border-top: 1.8px solid rgb(109,109,106);
+}
+
+.keywords{
+  display: block;
+  text-decoration: none;
+  color:white;
+  cursor: default;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 8px;
+}
+
+.keywords:hover{
+  background-color: rgb(109,109,109);
+}
+
+#background{
+  z-index:0;
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+#words-words-container{
+  position: absolute;
+  top:80px;
+  left:50%;
+  transform: translateX(-50%);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#word-words-container{
+  position: absolute;
+  top:15%;
+  left:50%;
+  transform: translateX(-50%);
+  font-family:Arial, Helvetica, sans-serif;
+  width:560px;
+}
+
+.word-container{
+  border-radius: 4px;
+  padding:30px;
+  background-color: rgb(29,29,29);
+  margin-bottom: 30px;
+}
+
+.words{
+  margin:0;
+  font-size:30px;
+  font-weight: 500;
+}
+
+.pofs{
+  color: rgb(109,109,109);
+  font-size:17px;
+  font-weight: 400;
+}
+
+.defs{
+  font-size:16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.date{
+  width:100%;
+  color: rgb(109,109,109);
+  font-size:15px;
+  font-weight: 400;
+  text-align: right;
+  margin:0;
+}
+
+.examples{
+  font-style: italic;
+  color:rgb(109,109,109);
+}
+
+audio{
+  display: none;
+}
+
+.pronunciations{
+  display: flex;
+}
+
+.phonetic-spellings{
+  margin: 0;
+  margin-top:4px;
+  margin-left: 8px;
 }
